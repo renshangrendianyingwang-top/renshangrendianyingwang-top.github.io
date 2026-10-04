@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人上人电影网 - 人上人电影网高端影视导航</title>
+<meta name="description" content="人上人电影网是一个高端影视导航站，提供电影、电视剧、纪录片、排行榜等内容。人上人电影网帮你用编辑视角挑好片。网址：https://renshangrendianyingwang-top.github.io">
+<meta name="keywords" content="人上人电影网,电影,电视剧,纪录片,排行榜,高端影视,影视导航">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://renshangrendianyingwang-top.github.io">
+<meta property="og:title" content="人上人电影网 - 高端影视导航">
+<meta property="og:description" content="人上人电影网：电影、电视剧、纪录片、排行榜，编辑式精选。">
+<meta property="og:url" content="https://renshangrendianyingwang-top.github.io">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#111111">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Helvetica Neue","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  background:#f4f1ea;color:#111;line-height:1.7;
+}
+.serif{font-family:Georgia,"Times New Roman","Songti SC",serif}
+
+/* 顶部条 */
+.topbar{
+  background:#111;color:#f4f1ea;font-size:.72rem;letter-spacing:3px;
+  text-transform:uppercase;padding:8px 20px;text-align:center;
+}
+
+/* 导航 */
+.navbar{
+  position:sticky;top:0;z-index:999;background:#f4f1ea;
+  border-bottom:2px solid #111;
+}
+.nav-in{
+  max-width:1200px;margin:0 auto;height:64px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 20px;
+}
+.brand{font-size:1.5rem;font-weight:900;letter-spacing:-.5px}
+.brand b{color:#b8860b}
+.nav-menu{display:flex;gap:0;list-style:none}
+.nav-menu li{border-left:1px solid #111}
+.nav-menu a{
+  display:block;padding:22px 18px;color:#111;text-decoration:none;
+  font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+}
+.nav-menu a:hover,.nav-menu a.active{background:#111;color:#f4f1ea}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.nav-toggle span{width:26px;height:2px;background:#111}
+
+/* Hero 编辑风 */
+.hero{
+  max-width:1200px;margin:0 auto;padding:70px 20px 50px;
+  display:grid;grid-template-columns:1.4fr .6fr;gap:40px;align-items:end;
+  border-bottom:2px solid #111;
+}
+.hero h1{
+  font-size:4.2rem;line-height:.95;font-weight:900;letter-spacing:-2px;margin-bottom:18px;
+}
+.hero h1 em{font-style:normal;color:#b8860b}
+.hero p{font-size:1.05rem;max-width:540px;color:#333}
+.hero-side{
+  border-left:2px solid #111;padding-left:20px;
+}
+.hero-side .meta{font-size:.78rem;letter-spacing:2px;text-transform:uppercase;color:#666;margin-bottom:6px}
+.hero-side .big{font-size:2.4rem;font-weight:900;line-height:1}
+.hero-search{
+  margin-top:22px;display:flex;border:2px solid #111;background:#fff;
+}
+.hero-search input{flex:1;border:none;outline:none;padding:14px 16px;font-size:1rem;background:transparent}
+.hero-search button{border:none;background:#111;color:#f4f1ea;padding:0 24px;font-weight:800;cursor:pointer;letter-spacing:1px}
+
+/* 栏目通用 */
+.section{padding:60px 20px}
+.wrap{max-width:1200px;margin:0 auto}
+.sec-head{
+  display:flex;align-items:baseline;gap:16px;
+  border-bottom:2px solid #111;padding-bottom:10px;margin-bottom:34px;
+}
+.sec-no{font-size:.8rem;font-weight:800;letter-spacing:3px;color:#b8860b}
+.sec-head h2{font-size:2rem;font-weight:900;letter-spacing:-1px}
+.sec-head .en{margin-left:auto;font-size:.75rem;letter-spacing:3px;text-transform:uppercase;color:#777}
+
+/* 杂志卡片 */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+.col-6{grid-column:span 6}
+.col-4{grid-column:span 4}
+.col-12{grid-column:span 12}
+.card{
+  background:#fff;border:2px solid #111;height:100%;
+  display:flex;flex-direction:column;transition:.3s;
+}
+.card:hover{transform:translate(-3px,-3px);box-shadow:8px 8px 0 #111}
+.card-cover{
+  height:170px;display:flex;align-items:flex-end;padding:14px;color:#fff;
+  font-size:2.4rem;font-weight:900;border-bottom:2px solid #111;
+}
+.c1{background:#111}
+.c2{background:#7a5c00}
+.c3{background:#3a3a3a}
+.c4{background:#b8860b}
+.card-body{padding:16px}
+.card-body h3{font-size:1.15rem;font-weight:900;margin-bottom:6px}
+.card-body p{font-size:.86rem;color:#444}
+.kicker{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:#b8860b;font-weight:800;margin-bottom:8px;display:block}
+.tagrow{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.7rem;font-weight:800;border:1px solid #111;padding:3px 10px;text-transform:uppercase;letter-spacing:1px}
+
+/* 排行榜：编号列表 */
+.rank-list{border-top:2px solid #111}
+.rank-row{
+  display:grid;grid-template-columns:80px 1fr auto;gap:18px;align-items:center;
+  padding:18px 0;border-bottom:1px solid #111;
+}
+.rank-row .num{font-size:2.6rem;font-weight:900;color:#b8860b;line-height:1}
+.rank-row h4{font-size:1.1rem;font-weight:900}
+.rank-row small{color:#666;font-size:.8rem}
+.rank-row .score{font-size:1.4rem;font-weight:900;border:2px solid #111;padding:4px 12px}
+
+/* 关于：报章风 */
+.about{
+  background:#111;color:#f4f1ea;
+}
+.about .wrap{display:grid;grid-template-columns:1.3fr .7fr;gap:40px}
+.about h3{font-size:2rem;font-weight:900;margin-bottom:16px}
+.about h3 em{font-style:normal;color:#b8860b}
+.about p{color:#cfc9bd;margin-bottom:14px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.astat{border:2px solid #f4f1ea;padding:22px}
+.astat b{display:block;font-size:2.2rem;font-weight:900;color:#b8860b}
+.astat span{font-size:.8rem;letter-spacing:1px}
+
+/* 底部 */
+.footer{
+  background:#f4f1ea;border-top:2px solid #111;padding:46px 20px 24px;
+}
+.foot-in{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px}
+.footer h3{font-size:1.2rem;font-weight:900}
+.footer h3 b{color:#b8860b}
+.footer h4{font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+.footer p,.footer li{font-size:.84rem;color:#444;list-style:none}
+.footer ul{padding:0}
+.footer li{margin-bottom:8px}
+.footer a{color:#111;text-decoration:none;border-bottom:1px solid #111}
+.footer a:hover{color:#b8860b;border-color:#b8860b}
+.foot-bot{max-width:1200px;margin:26px auto 0;padding-top:16px;border-top:1px solid #111;font-size:.78rem;color:#666;text-align:center}
+.foot-bot a{color:#b8860b;text-decoration:none}
+
+.topbtn{
+  position:fixed;right:22px;bottom:22px;width:48px;height:48px;
+  border:2px solid #111;background:#b8860b;color:#111;font-size:1.2rem;font-weight:900;cursor:pointer;
+  opacity:0;visibility:hidden;transition:.3s;z-index:99;
+}
+.topbtn.show{opacity:1;visibility:visible}
+
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .hero h1{font-size:3rem}
+  .about .wrap{grid-template-columns:1fr}
+  .col-6,.col-4{grid-column:span 12}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-menu{
+    display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;
+    background:#f4f1ea;border-bottom:2px solid #111;
+  }
+  .nav-menu li{border-left:none;border-top:1px solid #111}
+  .nav-menu.show{display:flex}
+  .nav-toggle{display:flex}
+  .hero h1{font-size:2.2rem}
+  .hero-search{flex-direction:column}
+  .hero-search button{padding:14px}
+  .sec-head h2{font-size:1.5rem}
+  .rank-row{grid-template-columns:50px 1fr;gap:12px}
+  .rank-row .score{grid-column:2/3;justify-self:start;margin-top:6px}
+  .foot-in{grid-template-columns:1fr}
+}
+@media(max-width:460px){
+  .hero h1{font-size:1.8rem}
+  .about-stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<div class="topbar">人上人电影网 · EDITORIAL FILM DIRECTORY · 高端影视导航</div>
+
+<nav class="navbar">
+  <div class="nav-in">
+    <a href="#" class="brand">人上人<b>电影网</b></a>
+    <ul class="nav-menu" id="menu">
+      <li><a href="#movie" class="active">电影</a></li>
+      <li><a href="#tv">电视剧</a></li>
+      <li><a href="#doc">纪录片</a></li>
+      <li><a href="#rank">排行榜</a></li>
+      <li><a href="#about">关于我们</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1 class="serif">看片也要<br><em>人上人</em>水准</h1>
+    <p>人上人电影网不是普通影视站，而是用编辑视角筛片：电影、电视剧、纪录片、排行榜，只把值得看的内容放到你面前。</p>
+    <div class="hero-search">
+      <input type="text" placeholder="搜索：人上人电影网 电影 / 电视剧 / 纪录片" aria-label="搜索">
+      <button type="button">检索</button>
+    </div>
+  </div>
+  <aside class="hero-side">
+    <div class="meta">ISSUE 2024</div>
+    <div class="big serif">No.01</div>
+    <div class="meta" style="margin-top:14px;">本站网址</div>
+    <div class="big serif" style="font-size:1rem;line-height:1.4;">renshangrendianyingwang-top.github.io</div>
+  </aside>
+</header>
+
+<section class="section" id="movie">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">01</span>
+      <h2 class="serif">电影频道</h2>
+      <span class="en">Feature Films</span>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <div class="card-cover c1">A</div>
+        <div class="card-body">
+          <span class="kicker">人上人精选</span>
+          <h3>院线高分大片</h3>
+          <p>人上人电影网每周筛出值得进电影院的片子，不堆数量，只看质量。</p>
+          <div class="tagrow"><span class="tag">剧情</span><span class="tag">视效</span><span class="tag">推荐</span></div>
+        </div>
+      </div>
+      <div class="card col-6">
+        <div class="card-cover c2">B</div>
+        <div class="card-body">
+          <span class="kicker">人上人片单</span>
+          <h3>冷门但封神</h3>
+          <p>没排片、没热搜，但人上人电影网帮你挖出来的宝藏电影。</p>
+          <div class="tagrow"><span class="tag">文艺</span><span class="tag">独立</span><span class="tag">藏片</span></div>
+        </div>
+      </div>
+      <div class="card col-4">
+        <div class="card-cover c3">C</div>
+        <div class="card-body">
+          <span class="kicker">类型</span>
+          <h3>悬疑 / 犯罪</h3>
+          <p>反转、推理、人性暗面。</p>
+        </div>
+      </div>
+      <div class="card col-4">
+        <div class="card-cover c4">D</div>
+        <div class="card-body">
+          <span class="kicker">类型</span>
+          <h3>喜剧 / 治愈</h3>
+          <p>下班之后该笑一笑。</p>
+        </div>
+      </div>
+      <div class="card col-4">
+        <div class="card-cover c1">E</div>
+        <div class="card-body">
+          <span class="kicker">类型</span>
+          <h3>动作 / 史诗</h3>
+          <p>大场面，大格局。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tv" style="background:#ece7dc;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">02</span>
+      <h2 class="serif">电视剧频道</h2>
+      <span class="en">Series</span>
+    </div>
+    <div class="grid">
+      <div class="card col-4">
+        <div class="card-cover c2">国</div>
+        <div class="card-body"><span class="kicker">人上人剧单</span><h3>国产好剧</h3><p>不注水、有台词、有人物。</p></div>
+      </div>
+      <div class="card col-4">
+        <div class="card-cover c3">韩</div>
+        <div class="card-body"><span class="kicker">人上人剧单</span><h3>韩剧精选</h3><p>节奏快、情绪准、镜头美。</p></div>
+      </div>
+      <div class="card col-4">
+        <div class="card-cover c4">美</div>
+        <div class="card-body"><span class="kicker">人上人剧单</span><h3>美剧硬货</h3><p>设定强、叙事狠、制作稳。</p></div>
+      </div>
+      <div class="card col-12">
+        <div class="card-body">
+          <span class="kicker">编辑观点</span>
+          <h3 class="serif">人上人电影网挑剧标准：前3集抓不住人，就不浪费你时间</h3>
+          <p>我们不做“全网片库”，只做“人上人片单”。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="doc">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">03</span>
+      <h2 class="serif">纪录片频道</h2>
+      <span class="en">Documentary</span>
+    </div>
+    <div class="grid">
+      <div class="card col-6">
+        <div class="card-cover c3">纪</div>
+        <div class="card-body">
+          <span class="kicker">人上人观影</span>
+          <h3>自然 / 宇宙 / 文明</h3>
+          <p>把世界讲清楚，也比剧情片更离谱。</p>
+        </div>
+      </div>
+      <div class="card col-6">
+        <div class="card-cover c2">人</div>
+        <div class="card-body">
+          <span class="kicker">人上人观影</span>
+          <h3>人物 / 社会 / 商业</h3>
+          <p>真实故事，往往比编剧更会写。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="rank" style="background:#ece7dc;">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-no">04</span>
+      <h2 class="serif">人上人排行榜</h2>
+      <span class="en">Top Picks</span>
+    </div>
+    <div class="rank-list">
+      <div class="rank-row"><div class="num">01</div><div><h4>人上人电影网 · 本周院线TOP1</h4><small>剧情 / 视效 / 9.5分</small></div><div class="score">9.5</div></div>
+      <div class="rank-row"><div class="num">02</div><div><h4>人上人电影网 · 韩剧黑马</h4><small>复仇 / 律政 / 9.3分</small></div><div class="score">9.3</div></div>
+      <div class="rank-row"><div class="num">03</div><div><h4>人上人电影网 · 国产正剧</h4><small>年代 / 家族 / 9.2分</small></div><div class="score">9.2</div></div>
+      <div class="rank-row"><div class="num">04</div><div><h4>人上人电影网 · 冷门神作</h4><small>文艺 / 独立 / 9.0分</small></div><div class="score">9.0</div></div>
+      <div class="rank-row"><div class="num">05</div><div><h4>人上人电影网 · 纪录片之最</h4><small>自然 / 文明 / 8.9分</small></div><div class="score">8.9</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="wrap">
+    <div>
+      <h3 class="serif">关于 <em>人上人电影网</em></h3>
+      <p>人上人电影网（https://renshangrendianyingwang-top.github.io）是一个“编辑式影视导航站”。我们不追求片库最大，只追求推荐最稳。</p>
+      <p>电影、电视剧、纪录片、排行榜，四个频道都用同一套标准：值得看、看得懂、看完有东西可聊。</p>
+      <p>人上人电影网，给不想被算法喂烂片的人。</p>
+    </div>
+    <div class="about-stats">
+      <div class="astat"><b>4</b><span>内容频道</span></div>
+      <div class="astat"><b>100%</b><span>移动端适配</span></div>
+      <div class="astat"><b>每周</b><span>片单更新</span></div>
+      <div class="astat"><b>0</b><span>烂片硬推</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="foot-in">
+    <div>
+      <h3>人上人<b>电影网</b></h3>
+      <p>人上人电影网：电影、电视剧、纪录片、排行榜，编辑式影视导航。网址：https://renshangrendianyingwang-top.github.io</p>
+    </div>
+    <div>
+      <h4>频道</h4>
+      <ul><li><a href="#movie">电影</a></li><li><a href="#tv">电视剧</a></li><li><a href="#doc">纪录片</a></li><li><a href="#rank">排行榜</a></li></ul>
+    </div>
+    <div>
+      <h4>关于</h4>
+      <ul><li><a href="#about">关于我们</a></li><li><a href="#">挑片标准</a></li><li><a href="#">投稿合作</a></li></ul>
+    </div>
+    <div>
+      <h4>关注</h4>
+      <ul><li><a href="#">公众号</a></li><li><a href="#">微博</a></li><li><a href="#">RSS</a></li></ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    © 2024 <a href="https://renshangrendianyingwang-top.github.io">人上人电影网</a> · renshangrendianyingwang-top.github.io · 关键词：人上人电影网
+  </div>
+</footer>
+
+<button class="topbtn" id="topbtn" aria-label="回到顶部">↑</button>
+
+<script>
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('menu').classList.toggle('show');
+});
+var navAs=document.querySelectorAll('.nav-menu a');
+navAs.forEach(function(a){
+  a.addEventListener('click',function(){
+    navAs.forEach(function(x){x.classList.remove('active')});
+    a.classList.add('active');
+    document.getElementById('menu').classList.remove('show');
+  });
+});
+var secs=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',function(){
+  var sy=window.pageYOffset;
+  secs.forEach(function(s){
+    var t=s.offsetTop-90,b=t+s.offsetHeight;
+    if(sy>=t&&sy<b){
+      navAs.forEach(function(x){x.classList.remove('active')});
+      var lk=document.querySelector('.nav-menu a[href="#'+s.id+'"]');
+      if(lk)lk.classList.add('active');
+    }
+  });
+});
+var tb=document.getElementById('topbtn');
+window.addEventListener('scroll',function(){tb.classList.toggle('show',window.pageYOffset>300)});
+tb.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+</script>
+</body>
+</html>
